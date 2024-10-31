@@ -1,8 +1,8 @@
 # CSE 576, 2024 Fall class project
 Class project for CSE 576, NLP, Fall 2024. The topic is building and optimizing LLM-based world models for reasoning and planning tasks. 
 
-
-Model to be used: Llama-3.1-8B-instruct
+Both Groups have to create separate folders in this github repo. to keep their work separate.
+Model to be used: Llama-3.1-8B-instruct ([https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct](url)) 
 
 RAP:  https://arxiv.org/pdf/2305.14992
 LATS: https://arxiv.org/pdf/2310.04406
