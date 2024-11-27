@@ -39,6 +39,10 @@ The folder `Examples/RAP/blocksworld` has been updated to align with the new con
 
 We provide scripts to reproduce the results of RAP using `Llama-3.1-8B-Instruct`. To reproduce results or experiment with other models, follow these steps:
 
+1. **Rune the demo.ipynb**
+   ```bash
+   ./demo.ipynb
+
 1. **Run the RAP Script**:
    ```bash
    ./examples/RAP/blocksworld/test_rap_llama2.sh
