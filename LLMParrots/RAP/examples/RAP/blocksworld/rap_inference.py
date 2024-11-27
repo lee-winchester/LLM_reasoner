@@ -59,7 +59,8 @@ if __name__ == '__main__':
     torch.backends.cudnn.deterministic = True
 
     def llama_hf_main(
-            llama_path = '/path/to/Llama-2-7b-hf',
+            hf_token = "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",
+            model_name = "meta-llama/Llama-3.1-8B-Instruct",
             peft_path = None,
             prompt_path: str = 'examples/CoT/blocksworld/prompts/prompt.json',
             data_path: str = 'examples/CoT/blocksworld/data/full_data/step_4.json', #UNsure about this line
@@ -76,7 +77,7 @@ if __name__ == '__main__':
         with open(prompt_path) as f:
             prompt = json.load(f)
         device = torch.device("cuda:0")
-        llama_model = HFModel(llama_path, llama_path, device=device, max_batch_size=1, max_new_tokens=512, quantized=quantized, peft_pth=peft_path, load_awq_pth=load_awq_pth)
+        llama_model = HFModel(model_name, model_name, device=device, max_batch_size=1, max_new_tokens=512, quantized=quantized, peft_pth=peft_path, load_awq_pth=load_awq_pth, use_auth_token=hf_token)
         RAP_bw(llama_model,
                prompt,
                disable_log=disable_log,
