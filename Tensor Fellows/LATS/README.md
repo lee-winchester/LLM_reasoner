@@ -1,4 +1,5 @@
 # Language Agent Tree Search (LATS) Implementation for BlocksWorld
+This repository provides a demonstration of using Large Language Models (LLMs) to solve the BlocksWorld problem using Language Agent Tree Search (LATS). The project includes steps to setup, preprocess model outputs, and evaluate the performance of LLMs like LLama and Gemini using LATS in a BlocksWorld setting.
 
 ## Setup
 ### Ollama Langchain
