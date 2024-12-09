@@ -1,0 +1,9 @@
+2024-12-08 17:03:03,653 - Starting inference ...
+2024-12-08 17:03:03,669 - Reading dataset...
+2024-12-08 17:03:03,669 - Processing item 0
+2024-12-08 17:03:03,670 - Root:
+2024-12-08 17:03:03,671 - State id: (0,), Parent: None, Children: [], Trajectory: [], value: 0, vistis: 0, state: {'Clear blocks': ['red'], 'Hand': None, 'Blocks on top of locations': {'red': 'yellow', 'blue': 'orange', 'yellow': 'blue', 'orange': 'table'}}
+2024-12-08 17:03:03,671 - Creating initial children nodes
+2024-12-08 17:04:04,009 - Parsing FAILED, trying again
+2024-12-08 17:05:04,105 - Parsing FAILED, trying again
+2024-12-08 17:06:04,192 - Parsing FAILED, trying again

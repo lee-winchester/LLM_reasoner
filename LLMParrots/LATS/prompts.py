@@ -2,6 +2,7 @@ import re
 import json
 import model
 import logging
+import time
 
 # Get the logger
 logger = logging.getLogger(__name__)
@@ -26,7 +27,9 @@ goal_state_prefix = "Goal state is as follows:"
 
 next_action_prefix = "Next action to take:"
 
-next_action_requirements = "Now, give me all actions possible on the current state. Actions should be one of the actions mentioned above and also should adhere to the restrictions mentioned above. I just need the actions and I don't need any explanations."
+next_action_requirements2 = "The previous action taken is "
+
+next_action_requirements = "Now, suggest me valid actions possible on the current state. Actions should be one of the actions mentioned above and also should adhere to the restrictions mentioned above. Also, most importantly the next action should not be something that negates the previous action. eg: if previous action is 'pick-up red block', the next action suggested should not be 'put down red block'. Similarly for stack, unstack, put-down, pick-up. I just need the actions and I don't need any explanations.Once you suggest an action also ensure, the restrictions on the acion are met by the current state"
 
 next_action_expected_format = "Give your actions as a comma separated string with '<NEXT_ACTIONS>' keyword before and '</NEXT_ACTIONS>' keyword after the actions. Every action should be in the format [ACTION][BLOCK]."
 
@@ -39,7 +42,11 @@ next_state_expected_format = "Give the next state as string with '<NEXT_STATE>' 
 next_state_example_answer = 'An example answer : <NEXT_STATE>{"Clear blocks": ["green", "yellow"], "Hand": "blue", "Blocks on top of locations": {"orange": "red", "red": "white", "white": "pink"}</NEXT_STATE>.'
 
 back_prop_requirements = "As per the given possible actions and considering their restrictions, tell me how many such actions will be required to reach from current state to goal state. Do no give me any explainations."
-
+back_prop_requirements2 = """Consider the current state, the goal state and the following reward rules: Reward rules:
++100 if the current state matches the goal state exactly.
++10 for each block correctly placed according to the goal state.
+-5 for each misplaced block.
+-1 for each unnecessary move. Given this, calculate the reward for the current state"""
 back_prop_expected_format = "Give me strictly numeric answer with '<NUM_STEPS>' keyword before and '</NUM_STEPS>' keyword after the answer."
 
 back_prop_example_answer = "An example answer : <NUM_STEPS>4</NUM_STEPS>"
@@ -50,7 +57,11 @@ def getActions(prompt):
     next_actions = None
     while attempts > 0:
         try:
-            response = model.prompt_model(prompt)
+            try:
+                response = model.prompt_model(prompt)
+            except:
+                print("In sleep")
+                time.sleep(60)
             next_actions = re.findall(
                 r"<NEXT_ACTIONS>(.*?)</NEXT_ACTIONS>", response)
             next_actions = [x for x in next_actions if len(x) > 0][0]
@@ -72,26 +83,42 @@ def getNextState(prompt):
     next_state = None
     while attempts > 0:
         try:
-            response = model.prompt_model(prompt)
+            try:
+                response = model.prompt_model(prompt)
+            except:
+                print("In sleep")
+                time.sleep(60)
             next_state = re.findall(
                 r"<NEXT_STATE>(.*?)</NEXT_STATE>", response)
             next_state = [x for x in next_state if len(x) > 0][0]
             break
-        except:
+        except Exception as e:
+            print(e)
             logger.warning("Parsing FAILED, trying again")
             attempts -= 1
     if next_state:
-        clear_blocks = re.findall(r"\[(.*?)\]", next_state)[0]
+        clear_blocks = str(re.findall(r"\[(.*?)\]", next_state)[0])
         hand = re.findall(r'"Hand":(.*?),', next_state)[0].strip()
-        blocks_on_top_of_locations = re.findall(r": {(.*?)}", next_state)[0]
+        print(hand)
+        if hand == "None":
+            print("here")
+            hand = '"None"'
+        blocks_on_top_of_locations = str(
+            re.findall(r": {(.*?)}", next_state)[0])
         print(clear_blocks, hand, blocks_on_top_of_locations)
-        return json.loads(
-            f'{{"Clear blocks": [{clear_blocks}], "Hand": {
-                hand}, "Blocks on top of locations": {{{blocks_on_top_of_locations}}}}}'
-        )
+        print(f'{{"Clear blocks": [{clear_blocks}], "Hand": {
+              hand}, "Blocks on top of locations": {{{blocks_on_top_of_locations}}}}}'
+              )
+        return json.loads(f'{{"Clear blocks": [{clear_blocks}], "Hand": {hand}, "Blocks on top of locations": {{{blocks_on_top_of_locations}}}}}')
     else:
+        print(
+            '{"Clear blocks": ["yellow", "red"], "Hand": None, "Blocks on top of locations": {"red": "table", "yellow": "orange", "blue": "table", "orange": "table"}}')
         raise Exception(
             f"Cannot parse this response for next state {response}")
+
+
+{"Clear blocks": ["yellow", "red"], "Hand": None, "Blocks on top of locations": {
+    "red": "table", "yellow": "orange", "blue": "table", "orange": "table"}}
 
 
 def getGoodness(prompt):
@@ -99,7 +126,11 @@ def getGoodness(prompt):
     num_steps = None
     while attempts > 0:
         try:
-            response = model.prompt_model(prompt)
+            try:
+                response = model.prompt_model(prompt)
+            except:
+                print("In sleep")
+                time.sleep(60)
             num_steps = re.findall(r"<NUM_STEPS>(.*?)</NUM_STEPS>", response)
             num_steps = [x for x in num_steps if len(x) > 0][0]
             break
@@ -112,8 +143,8 @@ def getGoodness(prompt):
         raise Exception(f"Cannot parse this response for goodness {response}")
 
 
-def get_next_action_prompt(current_state_status):
-    return f"{expert_solving_blocksworld}\n\n{actions_prefix}\n\n{allowed_actions}\n\n{action_restrictions_prefix}\n{action_restrictions}\n\n{states_prefix}\n{allowed_states}\n\n{current_state_prefix}\n{current_state_status}\n\n{next_action_requirements}\n\n{next_action_expected_format}\n{next_action_example_answer}"
+def get_next_action_prompt(current_state_status, prev_action):
+    return f"{expert_solving_blocksworld}\n\n{actions_prefix}\n\n{allowed_actions}\n\n{action_restrictions_prefix}\n{action_restrictions}\n\n{states_prefix}\n{allowed_states}\n\n{current_state_prefix}\n{current_state_status}\n\n{next_action_requirements2}\n{prev_action}\n{next_action_requirements}\n\n{next_action_expected_format}\n{next_action_example_answer}"
 
 
 def get_next_state_prompt(current_state_status, action):

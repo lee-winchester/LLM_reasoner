@@ -1,0 +1,213 @@
+2024-12-06 21:59:19,829 - Starting inference ...
+2024-12-06 21:59:19,829 - Reading dataset...
+2024-12-06 21:59:19,843 - Processing item 0
+2024-12-06 21:59:19,844 - Root:
+2024-12-06 21:59:19,845 - State id: (0,), Parent: None, Children: [], Trajectory: [], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'yellow'], 'Hand': None, 'Blocks on top of locations': {'red': 'blue', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:19,845 - Creating initial children nodes
+2024-12-06 21:59:20,983 - New node:
+2024-12-06 21:59:20,984 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:21,584 - New node:
+2024-12-06 21:59:21,584 - State id: (2,), Parent: (0,), Children: [], Trajectory: ['Pick up yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:21,584 - Iteration 0
+2024-12-06 21:59:21,585 - Selection:
+2024-12-06 21:59:21,585 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:21,586 - Simulation:
+2024-12-06 21:59:21,586 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:22,057 - Reward: 0.996
+2024-12-06 21:59:22,058 - Updated node:
+2024-12-06 21:59:22,058 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:22,058 - values backpropagated
+2024-12-06 21:59:22,059 - Iteration 1
+2024-12-06 21:59:22,059 - Selection:
+2024-12-06 21:59:22,059 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:22,059 - Expansion:
+2024-12-06 21:59:23,896 - New node:
+2024-12-06 21:59:23,896 - State id: (3,), Parent: (1,), Children: [], Trajectory: ['Pick up red', 'Put down block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:24,490 - New node:
+2024-12-06 21:59:24,490 - State id: (4,), Parent: (1,), Children: [], Trajectory: ['Pick up red', 'Stack block red on block blue'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'blue', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:25,115 - New node:
+2024-12-06 21:59:25,115 - State id: (5,), Parent: (1,), Children: [], Trajectory: ['Pick up red', 'Stack block red on block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'orange'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'yellow', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:25,786 - New node:
+2024-12-06 21:59:25,787 - State id: (6,), Parent: (1,), Children: [], Trajectory: ['Pick up red', 'Stack block red on block orange'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'orange', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:25,787 - Iteration 2
+2024-12-06 21:59:25,788 - Selection:
+2024-12-06 21:59:25,788 - State id: (3,), Parent: (1,), Children: [], Trajectory: ['Pick up red', 'Put down block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:25,789 - Simulation:
+2024-12-06 21:59:25,789 - State id: (3,), Parent: (1,), Children: [], Trajectory: ['Pick up red', 'Put down block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:26,129 - Reward: 0.995
+2024-12-06 21:59:26,132 - Updated node:
+2024-12-06 21:59:26,132 - State id: (3,), Parent: (1,), Children: [], Trajectory: ['Pick up red', 'Put down block red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:26,132 - values backpropagated
+2024-12-06 21:59:26,132 - Iteration 3
+2024-12-06 21:59:26,132 - Selection:
+2024-12-06 21:59:26,132 - State id: (3,), Parent: (1,), Children: [], Trajectory: ['Pick up red', 'Put down block red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:26,132 - Expansion:
+2024-12-06 21:59:27,281 - New node:
+2024-12-06 21:59:27,281 - State id: (7,), Parent: (3,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:27,879 - New node:
+2024-12-06 21:59:27,879 - State id: (8,), Parent: (3,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:28,437 - New node:
+2024-12-06 21:59:28,437 - State id: (9,), Parent: (3,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Unstack block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:28,437 - Iteration 4
+2024-12-06 21:59:28,437 - Selection:
+2024-12-06 21:59:28,437 - State id: (7,), Parent: (3,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:28,437 - Simulation:
+2024-12-06 21:59:28,437 - State id: (7,), Parent: (3,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:28,756 - Reward: 0.996
+2024-12-06 21:59:28,756 - Updated node:
+2024-12-06 21:59:28,756 - State id: (7,), Parent: (3,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:28,756 - values backpropagated
+2024-12-06 21:59:28,756 - Iteration 5
+2024-12-06 21:59:28,756 - Selection:
+2024-12-06 21:59:28,756 - State id: (7,), Parent: (3,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:59:28,756 - Expansion:
+2024-12-06 22:00:28,842 - Parsing FAILED, trying again
+2024-12-06 22:00:30,125 - New node:
+2024-12-06 22:00:30,125 - State id: (10,), Parent: (7,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:30,933 - New node:
+2024-12-06 22:00:30,933 - State id: (11,), Parent: (7,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Stack red on yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'orange', 'blue'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'yellow', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:31,511 - New node:
+2024-12-06 22:00:31,511 - State id: (12,), Parent: (7,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Stack red on blue'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'blue', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:32,167 - New node:
+2024-12-06 22:00:32,167 - State id: (13,), Parent: (7,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Stack red on orange'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'orange', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:32,172 - Iteration 6
+2024-12-06 22:00:32,172 - Selection:
+2024-12-06 22:00:32,172 - State id: (10,), Parent: (7,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:32,177 - Simulation:
+2024-12-06 22:00:32,177 - State id: (10,), Parent: (7,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:32,586 - Reward: 0.995
+2024-12-06 22:00:32,586 - Updated node:
+2024-12-06 22:00:32,586 - State id: (10,), Parent: (7,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:32,586 - values backpropagated
+2024-12-06 22:00:32,601 - Iteration 7
+2024-12-06 22:00:32,601 - Selection:
+2024-12-06 22:00:32,601 - State id: (10,), Parent: (7,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:32,601 - Expansion:
+2024-12-06 22:00:33,820 - New node:
+2024-12-06 22:00:33,820 - State id: (14,), Parent: (10,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:34,375 - New node:
+2024-12-06 22:00:34,375 - State id: (15,), Parent: (10,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:34,968 - New node:
+2024-12-06 22:00:34,968 - State id: (16,), Parent: (10,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Unstack block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:34,968 - Iteration 8
+2024-12-06 22:00:34,968 - Selection:
+2024-12-06 22:00:34,968 - State id: (14,), Parent: (10,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:34,978 - Simulation:
+2024-12-06 22:00:34,978 - State id: (14,), Parent: (10,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:35,312 - Reward: 0.996
+2024-12-06 22:00:35,312 - Updated node:
+2024-12-06 22:00:35,327 - State id: (14,), Parent: (10,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:35,327 - values backpropagated
+2024-12-06 22:00:35,327 - Iteration 9
+2024-12-06 22:00:35,327 - Selection:
+2024-12-06 22:00:35,327 - State id: (14,), Parent: (10,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:35,327 - Expansion:
+2024-12-06 22:00:36,464 - New node:
+2024-12-06 22:00:36,464 - State id: (17,), Parent: (14,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:37,196 - New node:
+2024-12-06 22:00:37,196 - State id: (18,), Parent: (14,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'orange', 'blue'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'yellow', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:00:37,829 - New node:
+2024-12-06 22:00:37,829 - State id: (19,), Parent: (14,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on blue'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'blue', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:37,928 - Parsing FAILED, trying again
+2024-12-06 22:01:38,567 - New node:
+2024-12-06 22:01:38,567 - State id: (20,), Parent: (14,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on orange'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'orange', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:38,567 - Iteration 10
+2024-12-06 22:01:38,567 - Selection:
+2024-12-06 22:01:38,567 - State id: (17,), Parent: (14,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:38,580 - Simulation:
+2024-12-06 22:01:38,580 - State id: (17,), Parent: (14,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:38,946 - Reward: 0.994
+2024-12-06 22:01:38,946 - Updated node:
+2024-12-06 22:01:38,946 - State id: (17,), Parent: (14,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0.994, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:38,946 - values backpropagated
+2024-12-06 22:01:38,946 - Iteration 11
+2024-12-06 22:01:38,946 - Selection:
+2024-12-06 22:01:38,946 - State id: (17,), Parent: (14,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0.994, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:38,946 - Expansion:
+2024-12-06 22:01:40,018 - New node:
+2024-12-06 22:01:40,018 - State id: (21,), Parent: (17,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:40,642 - New node:
+2024-12-06 22:01:40,642 - State id: (22,), Parent: (17,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:41,391 - New node:
+2024-12-06 22:01:41,391 - State id: (23,), Parent: (17,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Unstack block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:41,391 - Iteration 12
+2024-12-06 22:01:41,391 - Selection:
+2024-12-06 22:01:41,391 - State id: (21,), Parent: (17,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:41,391 - Simulation:
+2024-12-06 22:01:41,391 - State id: (21,), Parent: (17,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:41,713 - Reward: 0.996
+2024-12-06 22:01:41,713 - Updated node:
+2024-12-06 22:01:41,714 - State id: (21,), Parent: (17,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:41,715 - values backpropagated
+2024-12-06 22:01:41,716 - Iteration 13
+2024-12-06 22:01:41,717 - Selection:
+2024-12-06 22:01:41,717 - State id: (21,), Parent: (17,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:41,718 - Expansion:
+2024-12-06 22:01:42,940 - New node:
+2024-12-06 22:01:42,940 - State id: (24,), Parent: (21,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:43,564 - New node:
+2024-12-06 22:01:43,564 - State id: (25,), Parent: (21,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'orange'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'yellow', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:44,214 - New node:
+2024-12-06 22:01:44,214 - State id: (26,), Parent: (21,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on blue'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'blue', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:44,984 - New node:
+2024-12-06 22:01:44,984 - State id: (27,), Parent: (21,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on orange'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'orange', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:44,984 - Iteration 14
+2024-12-06 22:01:44,984 - Selection:
+2024-12-06 22:01:44,984 - State id: (24,), Parent: (21,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:45,001 - Simulation:
+2024-12-06 22:01:45,001 - State id: (24,), Parent: (21,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:45,404 - Reward: 0.995
+2024-12-06 22:01:45,404 - Updated node:
+2024-12-06 22:01:45,404 - State id: (24,), Parent: (21,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:45,407 - values backpropagated
+2024-12-06 22:01:45,407 - Iteration 15
+2024-12-06 22:01:45,407 - Selection:
+2024-12-06 22:01:45,408 - State id: (24,), Parent: (21,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:45,408 - Expansion:
+2024-12-06 22:01:46,731 - New node:
+2024-12-06 22:01:46,731 - State id: (28,), Parent: (24,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:01:47,247 - New node:
+2024-12-06 22:01:47,247 - State id: (29,), Parent: (24,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:47,347 - Parsing FAILED, trying again
+2024-12-06 22:02:48,062 - New node:
+2024-12-06 22:02:48,062 - State id: (30,), Parent: (24,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Unstack block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:48,062 - Iteration 16
+2024-12-06 22:02:48,062 - Selection:
+2024-12-06 22:02:48,062 - State id: (28,), Parent: (24,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:48,062 - Simulation:
+2024-12-06 22:02:48,062 - State id: (28,), Parent: (24,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:48,474 - Reward: 0.995
+2024-12-06 22:02:48,474 - Updated node:
+2024-12-06 22:02:48,486 - State id: (28,), Parent: (24,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:48,486 - values backpropagated
+2024-12-06 22:02:48,486 - Iteration 17
+2024-12-06 22:02:48,490 - Selection:
+2024-12-06 22:02:48,490 - State id: (28,), Parent: (24,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:48,490 - Expansion:
+2024-12-06 22:02:49,710 - New node:
+2024-12-06 22:02:49,710 - State id: (31,), Parent: (28,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:50,537 - New node:
+2024-12-06 22:02:50,537 - State id: (32,), Parent: (28,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'orange', 'blue'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'yellow', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:51,119 - New node:
+2024-12-06 22:02:51,119 - State id: (33,), Parent: (28,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on blue'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'blue', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:51,757 - New node:
+2024-12-06 22:02:51,757 - State id: (34,), Parent: (28,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Stack red on orange'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'orange', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:51,766 - Iteration 18
+2024-12-06 22:02:51,766 - Selection:
+2024-12-06 22:02:51,766 - State id: (31,), Parent: (28,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:51,766 - Simulation:
+2024-12-06 22:02:51,766 - State id: (31,), Parent: (28,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:52,170 - Reward: 0.995
+2024-12-06 22:02:52,170 - Updated node:
+2024-12-06 22:02:52,170 - State id: (31,), Parent: (28,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:52,170 - values backpropagated
+2024-12-06 22:02:52,170 - Iteration 19
+2024-12-06 22:02:52,170 - Selection:
+2024-12-06 22:02:52,170 - State id: (31,), Parent: (28,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red'], value: 0.995, vistis: 1, state: {'Clear blocks': ['yellow', 'red'], 'Hand': 'None', 'Blocks on top of locations': {'red': 'table', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:52,170 - Expansion:
+2024-12-06 22:02:53,417 - New node:
+2024-12-06 22:02:53,417 - State id: (35,), Parent: (31,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:54,079 - New node:
+2024-12-06 22:02:54,079 - State id: (36,), Parent: (31,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 22:02:54,732 - New node:
+2024-12-06 22:02:54,732 - State id: (37,), Parent: (31,), Children: [], Trajectory: ['Pick up red', 'Put down block red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Pick up block red', 'Put down red', 'Unstack block yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}

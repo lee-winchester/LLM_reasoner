@@ -7,18 +7,19 @@ from datetime import datetime
 
 INPUT_FILENAME = 'blocksworld.jsonl'
 OUTPUT_FILENAME = 'blocksworld_sol.json.'
+LOG_FOLDER = "logs"
 
-log_folder = "logs"
-if not os.path.exists(log_folder):
-    os.makedirs(log_folder)
+if not os.path.exists(LOG_FOLDER):
+    os.makedirs(LOG_FOLDER)
 
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-log_filename = f"{log_folder}/log_{timestamp}.log"
+log_filename = f"{LOG_FOLDER}/log_{timestamp}.log"
 
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(message)s',
-    handlers=[logging.FileHandler(log_filename), logging.StreamHandler()]  # Log to file and console
+    # Log to file and console
+    handlers=[logging.FileHandler(log_filename), logging.StreamHandler()]
 )
 
 # Example usage
@@ -35,6 +36,4 @@ if __name__ == '__main__':
     print("Accuracy = ", acc)
     logger.info(f"Accuracy = {acc}")
     with open(OUTPUT_FILENAME, 'w') as json_file:
-        json.dump(solutions, json_file, indent=4) 
-
-    
+        json.dump(solutions, json_file, indent=4)

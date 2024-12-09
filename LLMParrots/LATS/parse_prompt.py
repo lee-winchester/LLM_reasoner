@@ -1,5 +1,6 @@
 import re
 
+
 class BlocksWorldGoalState:
 
     def __init__(self):
@@ -12,6 +13,7 @@ class BlocksWorldGoalState:
     def get_goal_state_status(self):
         self.current_state_status["Blocks on top of locations"] = self.blocks_on_top_of_locations
         return self.current_state_status
+
 
 class BlocksWorldState:
 
@@ -42,7 +44,7 @@ def get_initial_state(prompt):
     current_state = BlocksWorldState()
 
     clear_blocks = re.findall(r'the (\w+) block is clear', prompt)
-    
+
     for clear_block in clear_blocks:
         current_state.add_block_to_clear(clear_block)
 
@@ -53,10 +55,10 @@ def get_initial_state(prompt):
         current_state.set_hand(block_in_hand)
 
     positionings = re.findall(r'the (\w+) block is (on top of the|on the) (\w+)', prompt)
-    
+
     for block, _, position in positionings:
         current_state.add_block_positioning(block, position)
-    
+
     current_state_status = current_state.get_current_state_status()
 
     return current_state_status
@@ -67,29 +69,30 @@ def get_goal_state(prompt):
     goal_state = BlocksWorldGoalState()
 
     positionings = re.findall(r'the (\w+) block is (on top of the|on the) (\w+)', prompt)
-    
+
     for block, _, position in positionings:
         goal_state.add_block_positioning(block, position)
-    
+
     goal_state_status = goal_state.get_goal_state_status()
 
     return goal_state_status
+
 
 def parsePrompt(original_prompt):
 
     # Extracting the initial conditions (between [STATEMENT] and "My goal is")
     initial_conditions_pattern = r"\[STATEMENT\](.*?)My goal is"
     initial_conditions_match = re.search(initial_conditions_pattern, original_prompt, re.DOTALL)
-    
+
     if initial_conditions_match:
         initial_state_prompt = initial_conditions_match.group(1).strip()
     else:
         initial_state_prompt = None
-    
+
     # Extracting the goal state (between "My goal is" and "My plan is")
     goal_state_pattern = r"My goal is(.*?)My plan is"
     goal_state_match = re.search(goal_state_pattern, original_prompt, re.DOTALL)
-    
+
     if goal_state_match:
         goal_state_prompt = goal_state_match.group(1).strip()
     else:
@@ -103,10 +106,13 @@ def parsePrompt(original_prompt):
 
 def check_goal_state_satisfied(current_state_status, goal_state_status):
     for block, location in goal_state_status["Blocks on top of locations"].items():
-        if not current_state_status["Blocks on top of locations"][block] == location:
-            return 0
-    return 1
-    
+        if block in current_state_status["Blocks on top of locations"].keys():
+            if not current_state_status["Blocks on top of locations"][block] == location:
+                return False
+        else:
+            return False
+    return True
+
 
 if __name__ == "__main__":
 

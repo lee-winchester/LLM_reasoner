@@ -1,0 +1,23 @@
+2024-12-06 21:26:42,285 - Starting inference ...
+2024-12-06 21:26:42,285 - Reading dataset...
+2024-12-06 21:26:42,301 - Processing item 0
+2024-12-06 21:26:42,301 - Root:
+2024-12-06 21:26:42,303 - State id: (0,), Parent: None, Children: [], Trajectory: [], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'yellow'], 'Hand': None, 'Blocks on top of locations': {'red': 'blue', 'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:26:42,303 - Creating initial children nodes
+2024-12-06 21:26:43,430 - New node:
+2024-12-06 21:26:43,430 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:26:44,031 - New node:
+2024-12-06 21:26:44,036 - State id: (2,), Parent: (0,), Children: [], Trajectory: ['Pick up yellow'], value: 0, vistis: 0, state: {'Clear blocks': ['red', 'orange'], 'Hand': 'yellow', 'Blocks on top of locations': {'red': 'blue', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:26:44,036 - Iteration 0
+2024-12-06 21:26:44,036 - Selection:
+2024-12-06 21:26:44,039 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:26:44,039 - Simulation:
+2024-12-06 21:26:44,039 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0, vistis: 0, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:26:44,557 - Reward: 0.996
+2024-12-06 21:26:44,557 - Updated node:
+2024-12-06 21:26:44,557 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:26:44,563 - values backpropagated
+2024-12-06 21:26:44,563 - Iteration 1
+2024-12-06 21:26:44,563 - Selection:
+2024-12-06 21:26:44,563 - State id: (1,), Parent: (0,), Children: [], Trajectory: ['Pick up red'], value: 0.996, vistis: 1, state: {'Clear blocks': ['yellow', 'blue'], 'Hand': 'red', 'Blocks on top of locations': {'yellow': 'orange', 'blue': 'table', 'orange': 'table'}}
+2024-12-06 21:26:44,563 - Expansion:
