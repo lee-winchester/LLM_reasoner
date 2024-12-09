@@ -37,7 +37,6 @@ def process_prompt(query):
 
 def process_query_data(query_dict):
     prompt = process_prompt(query_dict['query'])
-    ground_truth_plan = '(unstack yellow orange)\n(put-down yellow)\n(pick-up orange)\n(stack orange red)\n'
 
     # Convert the string into a list by splitting by '\n', removing parentheses and empty strings
     ground_truth_plan = query_dict['ground_truth']

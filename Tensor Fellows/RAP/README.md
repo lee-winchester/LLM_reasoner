@@ -1,107 +1,83 @@
-Here’s a sample **`README.md`** for your project, summarizing the key details and guiding potential users:
-
-```markdown
 # LLM-Reasoners Demo
 
-## Setup
+This repository provides a demonstration of using Large Language Models (LLMs) to solve the Blocks World problem using Reasoning-as-Planning (RAP). The project includes steps to preprocess model outputs, calculate exact match accuracy, and evaluate the performance of LLMs like LLama and Gemini using RAP in a Blocks World setting.
 
-This project is implemented in Python and leverages a unified interface for interacting with Large Language Models (LLMs) using **ExLlamaModel** or other supported providers.
+## Overview
 
-### Prerequisites
+The goal is to test LLMs on the Blocks World dataset by generating plans to achieve specified configurations and comparing these plans with ground-truth actions. The workflow includes:
+- **Model Integration:** Using pre-trained LLMs to generate block configuration transitions.
+- **Action Planning:** Employing RAP frameworks to plan actions to reach a goal configuration.
+- **Evaluation Metrics:** Calculating exact match accuracy after preprocessing the model outputs.
 
-1. Python 3.8 or higher
-2. CUDA-enabled GPU
-3. Required Python libraries (install with `pip install -r requirements.txt`)
+## Key Features
 
-### Initialize the Model
+- **Blocks World RAP Implementation:** A reasoning framework that uses block states instead of action histories to determine the next state transition.
+- **Preprocessing for Exact Match:** Removal of irrelevant words (e.g., "the," "block," "from") to semantically align generated and ground-truth actions.
+- **Results Evaluation:** Automated pipeline to compute exact match accuracy for model-generated plans.
 
-By default, the notebook uses **ExLlamaModel**. You can set up other model providers, such as HuggingFace or OpenAI models, as detailed in the code.
+## Workflow
 
-```python
-model = ExLlamaModel(
-    model_dir="TheBloke/Llama-2-7b-Chat-GPTQ",
-    device=torch.device("cuda:0"),
-    max_batch_size=1,
-    max_new_tokens=200,
-    max_seq_length=2048,
-)
-```
+### 1. Setup
 
----
+The RAP implementation relies on the `reasoners` library and a compatible pre-trained LLM (e.g., LLama-2). A pre-configured Blocks World environment is loaded using the provided scripts.
 
-## Dataset
+### 2. Model Integration
 
-The Blocksworld dataset is utilized for demonstration purposes, loaded via `blocksworld.jsonl`. It contains block manipulation examples used to create prompts for in-context learning. This is a preprocessed version of task_1_plan_generation.json
+The pre-trained Llama model is integrated using the `ExLlamaModel` interface. Model outputs are generated for each test query, and RAP is used to determine the next actions based on the current block state.
 
-```python
-queries = load_json('./blocksworld.jsonl')
-example_prompt, ground_truth_action_list = process_query_data(queries[0])
-```
+### 3. Execution
 
----
+For each query in the dataset:
+1. **Prompt Processing:** Queries are parsed into initial block configurations and goals using the `process_query_data` function.
+2. **Action Generation:** The RAP framework generates actions to transition between states using the LLM's output.
+3. **Trace Logging:** Model-generated actions (traces) and the ground-truth actions are stored in a `.jsonl` file.
 
-## RAP (Reasoning with Action Plans)
+### 4. Evaluation
 
-We implement the RAP approach as demonstrated in the [demo.ipynb](https://github.com/maitrix-org/llm-reasoners/blob/main/demo.ipynb) 
-Key classes:
-1. **`BlocksWorldModelRAP`**: Handles state transitions and terminal state checks.
-2. **`BWConfigRAP`**: Manages action generation and reward computation.
+The evaluation involves:
+1. **Preprocessing Outputs:** Removing unnecessary words (e.g., "the," "block") using regular expressions to ensure semantic alignment with ground truth.
+2. **Exact Match Check:** Comparing the preprocessed traces with ground truth on a step-by-step basis:
+    - **Mismatch in Length:** If the trace length differs from the ground truth, the instance is marked as incorrect.
+    - **Mismatch in Steps:** If any step in the trace differs from the ground truth after cleaning, the instance is marked as incorrect.
+3. **Accuracy Calculation:** The ratio of correctly matched instances to the total number of queries determines the exact match accuracy.
 
----
+### 5. Results
 
-## Algorithms and Search
-
-The demo uses **Monte Carlo Tree Search (MCTS)** to generate reasoning plans with depth and iteration limits.
+The pipeline outputs the accuracy of the RAP framework with the tested LLM. The final accuracy is calculated as:
 
 ```python
-algorithm = MCTS(depth_limit=4, disable_tqdm=False, output_trace_in_each_iter=True, n_iters=10)
+accuracy = sum(exact_matches) / len(exact_matches)
+accuracy_percentage = accuracy * 100
 ```
 
----
+## Code Files
 
-## Evaluation
+1. **`RAP_llama.ipynb/RAP_gemini.ipynb`:** Contains the full demonstration, including model setup, RAP implementation, and evaluation.
+2. **`rap-llama-results.jsonl`:** Stores the model-generated traces and ground-truth actions for each query.
+3. **`blocksworld.jsonl`:** Input dataset containing Blocks World queries.
+4. **`process_query.py`:** Utilities for query parsing and preprocessing.
 
-The evaluator integrates custom prompts and domain configurations to benchmark reasoning performance against ground-truth plans.
+## How Results Are Calculated
 
-```python
-evaluator = BWEvaluator(
-    config_file="./examples/CoT/blocksworld/data/bw_config.yaml",
-    domain_file="./examples/CoT/blocksworld/data/generated_domain.pddl",
-    data_path="./examples/CoT/blocksworld/data/split_v1/split_v1_step_4_data.json",
-    init_prompt=prompt,
-)
+- **Generated Trace:** The RAP framework generates a sequence of actions (trace) for each query.
+- **Ground-Truth Comparison:** The trace is compared with the ground-truth actions after cleaning to remove stopwords.
+- **Exact Match Criteria:** A query is considered a match if:
+  - The length of the generated trace matches the ground truth.
+  - Each action in the trace matches the corresponding ground-truth action after cleaning.
+- **Accuracy:** The proportion of queries with exact matches is calculated as the exact match accuracy.
+
+## Sample Output
+
+An example of a result entry in `rap-llama-results.jsonl`:
+
+```json
+{
+  "trace": ["pick-up yellow block", "stack yellow block on top of blue block"],
+  "ground_truth": ["pick-up yellow", "stack yellow blue"]
+}
 ```
 
----
+Accuracy calculation:
 
-## Results and Comparison
-
-The final step compares the generated tree-traced plan with the ground-truth plan to evaluate the algorithm's reasoning accuracy.
-
-```python
-
-world_model = BlocksWorldModelRAP(base_model=model, prompt=prompt, max_steps=4)
-config = BWConfigRAP(base_model=model, prompt=prompt)
-
-algorithm = MCTS(depth_limit=4, disable_tqdm=False, output_trace_in_each_iter=True, n_iters=10)
-
-reasoner_rap = Reasoner(world_model=world_model, search_config=config, search_algo=algorithm)
-result_rap = reasoner_rap(example_prompt)
-
-print(result_rap.trace[1], ground_truth_action_list)
-
->> (['unstack the yellow block from on top of the orange block',
-  'put down the yellow block',
-  'pick up the orange block',
-  'stack the orange block on top of the red block']
-  
- ['unstack yellow orange',
-  'put-down yellow',
-  'pick-up orange',
-  'stack orange red'])
-
-```
-
-
----
-
+- If the trace matches the ground truth for all steps, the instance is marked as correct.
+- Final accuracy is the percentage of correct instances in the dataset.
